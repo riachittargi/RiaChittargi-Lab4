@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 4</title>
+    <!-- Link to external script for Part 2 of the temperature conversion -->
+    <script src="conversion.js" defer></script>
+    <script>
+        //Changing paragraph content
+        function changeText() {
+            document.getElementById('text').innerText = "Hello, DOM Manipulation!";
+        }
+
+        // Displaying the name and age
+        function displayMessage() {
+            let name = document.getElementById('name').value;
+            let age = document.getElementById('age').value;
+            document.getElementById('message').innerText = `Hello, ${name}! You are ${age} years old!`;
+        }
+
+        //Showing the different data types
+        function showDataTypes() {
+            let str = "Hello World";
+            let num = 246;
+            let bool = false;
+            let nullVal = null;
+            let undefinedVal;
+            let bigInt = 3925702940939;
+
+            document.getElementById('types').innerHTML = `
+                String: ${str} (type: ${typeof str})<br>
+                Number: ${num} (type: ${typeof num})<br>
+                Boolean: ${bool} (type: ${typeof bool})<br>
+                Null: ${nullVal} (type: ${typeof nullVal})<br>
+                Undefined: ${undefinedVal} (type: ${typeof undefinedVal})<br>
+                BigInt: ${bigInt} (type: ${typeof bigInt})
+            `;
+        }
+
+        //Comparing the string values 
+        function CompareStrings(){
+            const comparisons = [
+                ["mango","custard apple"],
+                ["apple","Apple"],
+                ["volleyball","volleyball"],
+                ["","My name is Ria"],
+                ["",""],
+                ["@monkey","@fish"],
+                ["hello$","hello"],
+                ["test123","test_123"],
+                ["Hello","HELLO"],
+                ["123","234"],
+                ["","HELLO"],
+            ]
+            document.getElementById('comparisons').innerHTML = ;
+        }
+
+        
+        //using the operators and Variables 
+        function operate() {
+            let x = 100;
+            document.getElementById('result').innerHTML = `Initial x: ${x}<br>`;
+            x += 50;
+            document.getElementById('result').innerHTML += `After += 50: ${x}<br>`;
+            x -= 30;
+            document.getElementById('result').innerHTML += `After -= 30: ${x}<br>`;
+            x *= 2;
+            document.getElementById('result').innerHTML += `After *= 2: ${x}<br>`;
+            x /= 5;
+            document.getElementById('result').innerHTML += `After /= 5: ${x}<br>`;
+            x %= 7;
+            document.getElementById('result').innerHTML += `After %= 7: ${x}`;
+        }
+
+        // Celsius to Fahrenheit conversion
+        function cToF(celsius) {
+            return (celsius * 9/5) + 32;
+        }
+
+        function showCToF() {
+            let celsius = 30; 
+            document.getElementById('celsiusResult').innerText = `Celsius to Fahrenheit: ${cToF(celsius)} °F`;
+        }
+    </script>
+</head>
+<body>
+    <!-- - Button and Paragraph -->
+     <h2>Task 1: DOM Manipulation</h2>
+    <p id="text">Click the button to change this text.</p>
+    <button onclick="changeText()">Click Me!</button>
+
+    <!-- Form to get name and age -->
+    <h2>Task 2: Form with Name and Age</h2>
+    <form>
+        Name: <input type="text" id="name" required><br>
+        Age: <input type="number" id="age" required><br>
+        <button type="button" onclick="displayMessage()">Submit</button>
+    </form>
+    <p id="message"></p>
+
+    <!-- Working comparing Strings-->
+    <h2>Comparing Strings</h2>
+    <button onclick="CompareStrings()">Show String Comparisons</button>
+    <p id="comparisons"></p>
+
+    <!-- Working with Data Types -->
+    <h2> Display Data Types</h2>
+    <button onclick="showDataTypes()">Show Data Types</button>
+    <p id="types"></p>
+
+    <!-- working with Assignment Operators -->
+    <h2>Assignment Operators</h2>
+    <button onclick="operate()">Perform Operations</button>
+    <p id="result"></p>
+
+    <!-- Celsius to Fahrenheit conversion -->
+    <h2>Celsius to Fahrenheit Conversion</h2>
+    <button onclick="showCToF()">Convert Celsius to Fahrenheit</button>
+    <p id="celsiusResult"></p>
+
+    <!-- Fahrenheit to Celsius conversion using external JS file -->
+    <h2>Fahrenheit to Celsius Conversion</h2>
+    <button onclick="document.getElementById('fahrenheitResult').innerText = 'Fahrenheit to Celsius: ' + fToC(86) + ' °C';">Convert Fahrenheit to Celsius</button>
+    <p id="fahrenheitResult"></p>
+</body>
+</html>
